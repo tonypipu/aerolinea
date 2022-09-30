@@ -7,7 +7,7 @@ logging.basicConfig( level=logging.DEBUG, filename=os.path.dirname(os.path.abspa
 
 logger = logging.getLogger('Example_Log')
 logger.setLevel(logging.DEBUG)
-fh = logging.FileHandler('debug.log')
+fh = logging.FileHandler(filename=os.path.dirname(os.path.abspath(_file_))+'/debug.log')
 fh.setLevel(logging.DEBUG)
 
 
