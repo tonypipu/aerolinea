@@ -3,7 +3,6 @@ from typing import List, Dict
 from model.Rutas import Ruta
 from model.Pasaje import Pasaje
 from model.Vuelo import Vuelo
-from model.Detalles import Detalles
 from util import debug
 import pandas as pd
 import numpy as np
