@@ -1,5 +1,6 @@
+import os
 import logging 
-logging.basicConfig( level=logging.DEBUG, filename='/home/ubuntu/aerolinea/debug.log',format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+logging.basicConfig( level=logging.DEBUG, filename=os.path.dirname(os.path.abspath(file))+'/debug.log',format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 
 
 logger = logging.getLogger('Example_Log')
