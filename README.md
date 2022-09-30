@@ -27,5 +27,5 @@ pip install -r requirements.txt
 
 * Aqui estaran las clases
 
-## Entrar util
+## Entrar util (en caso no salga error debug)
 * Entrar a util y ejecutar el archivo debug.py (este archivo creara un achivo debug.log que sera el historial de errores del proyecto)
