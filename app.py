@@ -1,4 +1,4 @@
-
+#importacion de modulos
 from typing import List, Dict
 from model.Rutas import Ruta
 from model.Pasaje import Pasaje
@@ -6,8 +6,7 @@ from model.Vuelo import Vuelo
 from util import debug
 import pandas as pd
 import numpy as np
-
-
+import time
 import random
 import math
 
@@ -187,6 +186,7 @@ def main():
     lasi_eco=list()
     lasi_pre=list()
     
+    #creacion de dataframe a utilizar
     dfreporte = pd.DataFrame()
     dforden=pd.DataFrame()
     dforden_max_min=pd.DataFrame()
@@ -218,7 +218,7 @@ def main():
         lpasaje_pre.append(total_asientos_pre)
         
       
-    # for key, vuelo in enumerate(vuelos):
+   
         
    #manipulacion de datos dataframe
     dfreporte['Rutas']=lrutas
@@ -238,7 +238,7 @@ def main():
     dfreporte['Venta_pre']=dfreporte['IGV_Pre']+(dfreporte['Precio_base'] + dfreporte['Asientos_Pre'])
     dfreporte['Venta_Total']=dfreporte['Venta_eco'] + dfreporte['Venta_pre']
     
-    #print(dfreporte.dtypes)
+    
     #variables de almacenamiento de totales
     tol_asientos=dfreporte['Total_asientos'].sum()
     tol_ingresos_eco=dfreporte['Venta_eco'].sum()
@@ -251,14 +251,14 @@ def main():
     vue_max_pasajero=dfreporte.iloc[vue_id_max,0]
     vue_min_pasajero=dfreporte.iloc[vue_id_min,0]
     
-    
+    #obtenemos las 3 mayores rutas
     dforden['Rutas']=dfreporte['Rutas']
     dforden['Venta_Total']=dfreporte['Venta_Total']
     dforden=dforden.sort_values(by='Venta_Total', ascending=False)
     dforden_max_min['Mayores_Rutas']=dforden["Rutas"].iloc[0:3]
     print(dfreporte)
     
-    
+    #obtenemos el avion con mayor pasajeros
     dfavion_temp['Avion']=dfreporte['Avion']
     dfavion_temp['Total_asientos']=dfreporte['Total_asientos'] 
     n_aviones=list()
@@ -278,7 +278,7 @@ def main():
     
     
     
-    #creamos data frame que almacene los totales 
+    #creamos dataframe que almacene los totales (preguntas)
     datos = {
     'Total_asientos' : [tol_asientos],
     'Total_Ingresos_VPC' : [tol_ingresos_eco],
@@ -292,7 +292,7 @@ def main():
     
     
     }
-
+    
     dfrep_detalle = pd.DataFrame(datos)
     print("REPORTE DETALLES")
     print("*"*30)
